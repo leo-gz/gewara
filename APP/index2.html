@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>bootstrap测试页面</title>
+
+<script src="../bower_components/jquery/dist/jquery.js">
+</script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.js">
+</script>
+<link rel="stylesheet" 
+href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+<style>
+body{
+  background-color:rgba(240,240,240,1); 
+}
+#navbar{
+	margin-bottom:0;
+}
+#header{
+	background:rgba(242,101,34,1);
+	height:45px;
+	color:white;
+}
+.navbar-brand{
+	padding:0;
+}
+#navbar-location{
+	margin-left:20px;
+	line-height: 45px;
+}
+#navbar-location a{
+	text-decoration: none;
+	font-size:16px;
+	color:white;
+}
+.icon-bar{
+	background:white;
+}
+#menu-pulldown{
+	position:absolute;
+	right:0;
+	background:rgba(242,101,34,1);
+}
+#menu-pulldown ul li a{
+	color:white;
+}
+#menu-pulldown ul li a img{
+	height:20px;
+}
+
+
+#tab-select{
+  height:50px;
+  background-color:rgba(240,240,240,1); 
+  margin-top: 0;
+}
+#tab-select1{
+  float:left;
+  width:49%;
+  text-align:center;
+  line-height: 40px;
+}
+#tab-select2{
+  text-align:center;
+  line-height: 40px;
+  margin-bottom: -2px;
+}
+.tab-selected{
+  border-bottom:2px solid rgba(242,101,34,1);
+}
+.tab-unselected{
+  border-bottom:2px solid rgba(177,178,177,1);
+}
+
+.movie-panel{
+  background-color: rgba(240,240,240,1);
+ /* -webkit-animation:slide-animation2 0.3s; */
+  transition: margin-right 3s linear 2s;
+}
+/*@-webkit-keyframes slide-animation2 
+{
+from {margin-right:100%;}
+to {margin-left:0;}
+}*/
+.sale-type{
+  color:#999;
+  padding:15px;
+}
+
+.movie{
+	margin:10px;
+	padding-bottom:20px;
+	border-bottom: 1px solid #ccc;
+}
+.poster img{
+	width:80px;
+}
+.movie-score{
+	font-size: 18px;
+	line-height: 22px;
+	float:right;
+	margin-right:13px;
+	color:rgba(242,101,34,1);
+}
+.movie-form-3d{
+	color:white;
+	font-size:12px;
+	background-color: #3ed718;
+	padding:0px 5px;
+}
+.movie-form-imax{
+	color:white;
+	font-size:10px;
+	background-color: #2292dd;
+	padding:0px 5px;
+}
+.watcher-number{
+	margin-top:20px;
+}
+.watcher-number span{
+	color:rgba(242,101,34,1);
+}
+
+.cinema-panel{
+  margin-top: -7px;
+  background-color: rgba(240,240,240,1);
+  -webkit-animation:slide-animation1 0.3s; 
+}
+@-webkit-keyframes slide-animation1 
+{
+from {margin-left:100%;}
+to {margin-left:0;}
+}
+#cinema-select{
+  height:45px;
+  background-color: rgba(248,248,248,1);
+  border-top:1px solid transparent;
+}
+#cinema-select1{
+  float:left;
+  margin:7px 0;
+  width:50%;
+  height:30px;
+  border-right:1px solid #ccc;
+}
+#cinema-select2{
+  margin:7px 0;
+  height:30px;
+}
+#cinema-select1 img{
+  margin-left:60px;
+  margin-right:10px;
+  width:18px;
+}
+#cinema-select2 img{
+  margin-left:60px;
+  margin-right:10px;
+  width:18px;
+}
+.cinema{
+  padding-top:20px;
+  padding-left:10px;
+  padding-bottom:20px;
+  border-bottom: 1px solid #ccc;
+}
+.cinema-name{
+  font-size:18px;
+}
+.cinema-score{
+  font-size: 18px;
+  line-height: 22px;
+  float:right;
+  margin-right:13px;
+  color:rgba(242,101,34,1);
+}
+.cinema-address{
+  font-size:14px;
+}
+.cinema-changci{
+  padding-top:10px;
+  font-size:12px;
+  color:#ccc;
+}
+
+#openApp{
+  position: fixed;
+  bottom:0;
+  width:100%;
+  height:60px;
+  background-color: #f4f4f4;
+  z-index: 9999;
+  border-top: 1px solid #ccc;
+}
+.modal-logo{
+  padding:10px 0px 20px 10px;
+}
+.modal-logo img{
+  width:40px;
+}
+.modal-body{
+  padding-left:20px;
+}
+.modal-header{
+  padding:0px;
+  color:rgba(242,101,34,1);
+  font-size:14px;
+}
+.modal-desc{
+  padding:0;
+  font-size:5px;
+}
+#openApp-button{
+  position:absolute;
+  top:15px;
+  right:60px;
+  width:70px;
+  height:25px;
+  border:1px solid rgba(242,101,34,1);
+  border-radius:3px;
+  text-align:center;
+  line-height: 25px;
+  color:rgba(242,101,34,1);
+  font-size:6px;
+}
+#openApp-close{
+  position:absolute;
+  top:3px;
+  right:15px;
+}
+#openApp-close img{
+  height:18px;
+}
+
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+	<div class="navbar-header" id="header">		
+		<a class="navbar-brand" href="#">
+			<img alt="Brand" src="img/index-header01.png"
+			height="45px">
+		</a>
+		<span id="navbar-location">
+			<a href="location2.html">广州<span class="caret"></span></a>
+		</span>
+		<button class="navbar-toggle collapsed" data-toggle="collapse"
+		 data-target="#menu-pulldown"> 
+			<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+		</button>
+	</div>
+	<div class="collapse navbar-collapse" id="menu-pulldown">
+		<ul class="nav navbar-nav">
+			<li>
+				<a href="#">
+				<img src="img/index-header04.png">首页
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<img src="img/index-header05.png">个人中心
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+
+ <div id="tab-select">
+  <div id="tab-select1" class="tab-selected">电影</div>
+  <div id="tab-select2" class="tab-unselected">影院</div>
+ </div>
+ <div id="tab-content">
+    <div class="movie-panel" id="movie-panel">
+
+      	<p class="sale-type">正在售票</p>
+
+      	<div class="media movie">
+      		<div class="media-left poster">
+        	  <a href="#">
+             	<img class="media-object" 
+             		src="img/poster01.png" alt="...">
+        	  </a>
+      		</div>
+      		<div class="media-body">
+        		<h4 class="media-heading">
+        			摔跤吧，爸爸！        	
+        		<span class="movie-form-3d">3D</span>
+        		<span class="movie-score">9<sup>.5</sup></span>
+        		</h4>
+        		慈父虎爸秒切换！携女共园摔跤梦！
+        		<p class="watcher-number">
+        			<span>895,108</span>人购票
+        		</p>
+    		</div>
+    	</div>
+
+    	<div class="media movie">
+      		<div class="media-left poster">
+        	  <a href="#">
+             	<img class="media-object" 
+             		src="img/poster01.png" alt="...">
+        	  </a>
+      		</div>
+      		<div class="media-body">
+        		<h4 class="media-heading">
+        			摔跤吧，爸爸！
+        		<span class="movie-form-imax">
+        			<strong>IMAX</strong>3D
+        		</span>
+        		<span class="movie-score">9<sup>.5</sup></span>
+     			</h4>
+        		慈父虎爸秒切换！携女共园摔跤梦！
+        		<p class="watcher-number">
+        			<span>895,108</span>人购票
+        		</p>
+    		</div>
+    	</div>
+
+    	<div class="media movie">
+      		<div class="media-left poster">
+        	  <a href="#">
+             	<img class="media-object" 
+             		src="img/poster01.png" alt="...">
+        	  </a>
+      		</div>
+      		<div class="media-body">
+        		<h4 class="media-heading">
+        			摔跤吧，爸爸！
+        		  <span class="movie-score">9<sup>.5</sup></span>
+     			  </h4>
+        		慈父虎爸秒切换！携女共园摔跤梦！
+        		<p class="watcher-number">
+        			<span>895,108</span>人购票
+        		</p>
+    		  </div>
+    	</div>
+
+      <div class="media movie">
+          <div class="media-left poster">
+            <a href="#">
+              <img class="media-object" 
+                src="img/poster01.png" alt="...">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">
+              摔跤吧，爸爸！
+            <span class="movie-score">9<sup>.5</sup></span>
+          </h4>
+            慈父虎爸秒切换！携女共园摔跤梦！
+            <p class="watcher-number">
+              <span>895,108</span>人购票
+            </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cinema-panel" id="cinema-panel"> 
+      
+      <div id="cinema-select">
+        <div id="cinema-select1">
+          <img src="img/area-logo.png" alt="">
+          区域<span class="caret"></span>
+        </div>
+        <div id="cinema-select2">
+          <img src="img/feature-logo.png" alt="">
+          特色<span class="caret"></span>
+        </div>
+      </div>
+      <div class="cinema">
+        <div class="cinema-name">  
+            JAJ24小时影院 影吧
+            <span class="cinema-score">9<sup>.5</sup></span>        
+        </div>
+        <div class="cinema-address"> 
+            市桥繁华路3号3楼         
+        </div>
+        <div class="cinema-changci">   
+            放映3部余19场       
+        </div>
+      </div>
+
+      <div class="cinema">
+        <div class="cinema-name">  
+            JAJ24小时影院 影吧 
+             <span class="cinema-score">9<sup>.5</sup></span>        
+        </div>
+        <div class="cinema-address"> 
+            市桥繁华路3号3楼         
+        </div>
+        <div class="cinema-changci">   
+            放映3部余19场       
+        </div>
+      </div>
+
+      <div class="cinema">
+        <div class="cinema-name">  
+            JAJ24小时影院 影吧    
+             <span class="cinema-score">9<sup>.5</sup></span>     
+        </div>
+        <div class="cinema-address"> 
+            市桥繁华路3号3楼         
+        </div>
+        <div class="cinema-changci">   
+            放映3部余19场       
+        </div>
+      </div>
+
+      <div class="cinema">
+        <div class="cinema-name">  
+            JAJ24小时影院 影吧  
+             <span class="cinema-score">9<sup>.5</sup></span>       
+        </div>
+        <div class="cinema-address"> 
+            市桥繁华路3号3楼         
+        </div>
+        <div class="cinema-changci">   
+            放映3部余19场       
+        </div>
+      </div>
+
+
+       <div class="cinema">
+        <div class="cinema-name">  
+            JAJ24小时影院 影吧  
+             <span class="cinema-score">9<sup>.5</sup></span>       
+        </div>
+        <div class="cinema-address"> 
+            市桥繁华路3号3楼         
+        </div>
+        <div class="cinema-changci">   
+            放映3部余19场       
+        </div>
+      </div>
+    </div>
+
+ </div>
+
+<div id="openApp">
+  <div class="media">
+          <div class="media-left modal-logo">
+            <a href="#">
+              <img class="media-object" 
+                src="img/logo-app.png" alt="...">
+            </a>
+          </div>
+          <div class="media-body modal-body">  
+            <span class="modal-header">格瓦拉生活</span>
+            <span class="modal-desc">你的文艺生活指南</span>
+            <div id="openApp-button">立即打开</div>
+            <div id="openApp-close">
+              <img src="img/close-logo.png" alt="">
+            </div>
+      </div>
+</div>
+ <script>
+ $("#cinema-panel").hide();
+ $("#tab-select1").click(
+    function(e){
+      $("#movie-panel").show();
+      $("#cinema-panel").hide();
+      $("#tab-select1").attr("class","tab-selected");
+      $("#tab-select2").attr("class","tab-unselected");
+    }
+  );
+ $("#tab-select2").click(
+    function(e){
+      $("#movie-panel").hide();
+      $("#cinema-panel").show();
+      $("#tab-select2").attr("class","tab-selected");
+      $("#tab-select1").attr("class","tab-unselected");
+    }
+  );
+ </script>
+</body>
+</html>
